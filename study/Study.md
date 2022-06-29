@@ -54,3 +54,7 @@ props는 재사용 가능한 컴포넌트를 만들 수 있게 해주고 다른 
 배열이 expenses에 전달하고 싶은 것이다. 이 배열도 expenses 컴포넌트로 이동할 수 있다.
 items 속성을 위해 매개변수 props를 통해 전달하는 대신 Expenses 컴포넌트 안에 있는 속성을 추출해서
 모든 expenses를 렌더링할 것이다.
+
+### 40. children prop
+
+ExpenseItem.js에서 className을 props로 설정하고, props.children은 따로 설정하지 않을것이다. 예약어와 같기 때문이다. props.children은 언제나 이 사용자 지정 컴포넌트에 있는 컨텐츠일 것이다.
