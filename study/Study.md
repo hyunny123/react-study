@@ -58,3 +58,14 @@ items 속성을 위해 매개변수 props를 통해 전달하는 대신 Expenses
 ### 40. children prop
 
 ExpenseItem.js에서 className을 props로 설정하고, props.children은 따로 설정하지 않을것이다. 예약어와 같기 때문이다. props.children은 언제나 이 사용자 지정 컴포넌트에 있는 컨텐츠일 것이다.
+
+### 41. module Content
+
+React 핵심 구문 과 jsx, components, data를 공유하는 방법을 배워서 우리가 한 개이상의 비용 아이템을 원할시 모든 코드를 여러번 반복해서 사용하는 대신에 사용자 지정 ExpenseItem 컴포넌트를 원하는 만큼 사용할 수 있다.
+
+이러한 사용자 지정 컴포넌트들은 화면에 보이게 하는 진짜 html 코드가 아니라, 리액트 코드, JSX코드를 사용하는 것이다.
+
+### 42
+
+JSX코드는 단지읽기 쉽고 편한 문법에 불과하다. 안을 들여다보면, 실제로 이 React 객체에서 호출된 두가지 메서드를 변환했다. 그것이 바로 리액트를 import해야했던 이유이다.
+JSX 코드를 사용하지 않았을 경우에는
