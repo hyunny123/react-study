@@ -1,6 +1,7 @@
 // import ExpenseItem from "./components/ExpenseItem";
-import Expenses from "./components/Expenses/Expenses";
 import React from "react";
+import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 function App() {
   //여러개의 비용 아이템이 들어가있는 배열
@@ -25,21 +26,21 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
-  return React.createElement(
-    "div",
-    {},
-    React.createElement("h2", {}, "Let's get started!"),
-    React.createElement(Expenses, { items: expenses })
-  );
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h2", {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
   //createElement 메소드는 세개의 인자를 취한다. (생성,객체,)
   //JSX코드를 사용할때보다 약간 더 읽기 불편하고 번거로울 뿐이다.
 
-  // return (
-  //   <div>
-  //     <h2>Let's get started!</h2>
-  //     <Expenses items={expenses} />
-  //   </div>
-  // );
+  return (
+    <div>
+      <NewExpense />
+      <Expenses items={expenses} />
+    </div>
+  );
 }
 
 export default App;
