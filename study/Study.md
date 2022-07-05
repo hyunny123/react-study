@@ -133,4 +133,6 @@ prevState로 실행했을떈 이안에 있는 함수에서 이상태 스냅샷�
 기본 속성인 value를 input 요소에 추가하기만 하면 된다.
 이것은 모든 입력 요소들이 갖는 내부 값의 프로퍼티를 설정할 것이다. 그리고 그것을 새로운 갓ㅂ으로 설정 할 수 있다.
 
-### 60. Liftin State Up (상태 끌어올리기)
+## Rendering Lists & Rendering Conditional Content
+
+### 66. 렌더링 목록
