@@ -135,4 +135,13 @@ prevState로 실행했을떈 이안에 있는 함수에서 이상태 스냅샷�
 
 ## Rendering Lists & Rendering Conditional Content
 
-### 66. 렌더링 목록
+### 68. keys props
+
+### 69. Lists
+
+filtered dropdown select
+
+### 70. 조건부 내용
+
+조건부 컨텐츠는 각각 다른 상황에서 다양한 출력값을 렌더링 하는 것.
+선택한 필터에 아이템이 없을 경우 알려줘야 할 메세지를 렌더링 한다.
