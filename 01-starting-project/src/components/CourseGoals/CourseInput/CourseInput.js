@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import Button from '../../UI/Button/Button';
-import './CourseInput.css';
+import Button from "../../UI/Button/Button";
+import "./CourseInput.css";
 
-const CourseInput = props => {
-  const [enteredValue, setEnteredValue] = useState('');
+const CourseInput = (props) => {
+  const [enteredValue, setEnteredValue] = useState("");
 
-  const goalInputChangeHandler = event => {
+  const goalInputChangeHandler = (event) => {
     setEnteredValue(event.target.value);
   };
 
-  const formSubmitHandler = event => {
+  const formSubmitHandler = (event) => {
     event.preventDefault();
+    //form에 공백일 경우 추가 금지 구현. trim 메서드 사용.
+    if (enteredValue.trim().length === 0) {
+      return;
+    }
     props.onAddGoal(enteredValue);
   };
 
