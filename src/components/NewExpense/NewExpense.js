@@ -13,6 +13,7 @@ const NewExpense = (props) => {
       id: Math.random().toString(),
     };
     props.onAddExpense(expenseData);
+    //폼이 submit이 되고 난 뒤에 다시 폼을 닫기위해 설정
     setIsEditing(false);
   };
 

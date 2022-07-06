@@ -8,7 +8,7 @@ const ExpenseItem = (props) => {
   //1: 관리되고 있는 값
   //2: 나중에 새로운 title을 설정하기 위해 호출할 수 있는 함수.
   // const [title, setTitle] = useState(props.title);
-  //버튼 클릭시 title을 바꾸고 싶다.
+  //버튼 클릭시 titl e을 바꾸고 싶다.
   //let으로 변수를 생성
   //let title = props.title;
 
