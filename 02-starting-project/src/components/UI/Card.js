@@ -6,6 +6,8 @@ const Card = (props) => {
   //className의 도움으로 div에 적용하는 css 클래스가 이미 적용하고 있는 card클래스에
   //반영되는 것뿐만 아니라 Card 컴포넌트의 ClassName props에 잠재적으로 들어오는 클래스에 적용
   return (
+    //${props.className} 이렇게 내부에 정의한 클래스에 ${classes.card}이렇게
+    //외부클래스를 추가해서 확장하고 저장.
     <div className={`${classes.card} ${props.className}`}>{props.children}</div>
   );
 };
