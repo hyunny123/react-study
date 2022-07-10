@@ -16,7 +16,11 @@ const AddUser = (props) => {
     if (+enteredAge < 1) {
       return;
     }
+    //users 객체의 배열 추가
+    //상태 끌어올리기 개념
+    //props를 통해 얹는 값이 함수
     console.log(enteredUserName, enteredAge);
+    props.onAddUser(enteredUserName, enteredAge);
     //reset : input에 현재 상태를 반영하지 않으면 reset되지 않음
     //input요소는 속성으로 value를 갖는데 value에 사용자가 입력한 값을 설정할수 있다.value={enteredAge}
     setEnteredUserName("");
