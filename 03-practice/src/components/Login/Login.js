@@ -11,31 +11,35 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  useEffect(() => {
-    //사용자가 입력을 할때마다 유효성 검사X, 디바운스(그룹화)하여 검사O
-    const identifier = setTimeout(() => {
-      console.log("check!!");
-      setFormIsValid(
-        enteredEmail.includes("@") && enteredPassword.trim().length > 6
-      );
-    }, 500);
-    clearTimeout();
-    //cleanup func
-    return () => {
-      console.log("cleanup!!");
-      clearTimeout(identifier);
-    };
-  }, [enteredEmail, enteredPassword]);
+  // useEffect(() => {
+  //   //사용자가 입력을 할때마다 유효성 검사X, 디바운스(그룹화)하여 검사O
+  //   const identifier = setTimeout(() => {
+  //     console.log("check!!");
+  //     setFormIsValid(
+  //       enteredEmail.includes("@") && enteredPassword.trim().length > 6
+  //     );
+  //   }, 500);
+  //   clearTimeout();
+  //   //cleanup func
+  //   return () => {
+  //     console.log("cleanup!!");
+  //     clearTimeout(identifier);
+  //   };
+  // }, [enteredEmail, enteredPassword]);
 
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
+
+    setFormIsValid(
+      event.target.value.includes("@") && enteredPassword.trim().length > 6
+    );
   };
 
   const passwordChangeHandler = (event) => {
     setEnteredPassword(event.target.value);
 
     setFormIsValid(
-      event.target.value.trim().length > 6 && enteredEmail.includes("@")
+      enteredEmail.includes("@") && enteredPassword.trim().length > 6
     );
   };
 

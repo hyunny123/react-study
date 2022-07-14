@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
+import CarouselComponent from "./components/Carousel/CarouselComponent";
+import CarouselMain from "./components/CarouselM/CarouselMain";
 
 //여러개의 비용 아이템이 들어가있는 배열
 const DUMMY_EXPENSES = [
@@ -46,6 +48,8 @@ const App = () => {
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
+      <CarouselComponent />
+      <CarouselMain />
     </div>
   );
 };
