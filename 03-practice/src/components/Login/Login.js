@@ -45,21 +45,29 @@ const Login = (props) => {
     inValid: null,
   });
 
-  // useEffect(() => {
-  //   //사용자가 입력을 할때마다 유효성 검사X, 디바운스(그룹화)하여 검사O
-  //   const identifier = setTimeout(() => {
-  //     console.log("check!!");
-  //     setFormIsValid(
-  //       enteredEmail.includes("@") && enteredPassword.trim().length > 6
-  //     );
-  //   }, 500);
-  //   clearTimeout();
-  //   //cleanup func
-  //   return () => {
-  //     console.log("cleanup!!");
-  //     clearTimeout(identifier);
-  //   };
-  // }, [enteredEmail, enteredPassword]);
+  useEffect(() => {
+    console.log("Effect Running");
+    return () => {
+      console.log("effect cleanup~!");
+    };
+  }, []);
+
+  const { isValid: emailIsValid } = emailState;
+  const { isValid: passwordIsValid } = passwordState;
+
+  useEffect(() => {
+    //사용자가 입력을 할때마다 유효성 검사X, 디바운스(그룹화)하여 검사O
+    const identifier = setTimeout(() => {
+      console.log("check!!");
+      setFormIsValid(emailIsValid && passwordIsValid);
+    }, 500);
+    clearTimeout();
+    //cleanup func
+    return () => {
+      console.log("cleanup!!");
+      clearTimeout(identifier);
+    };
+  }, [emailIsValid, passwordIsValid]);
 
   const emailChangeHandler = (event) => {
     // setEnteredEmail(event.target.value);
