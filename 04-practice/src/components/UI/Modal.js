@@ -21,6 +21,7 @@ const Modal = (props) => {
   return (
     <Fragment>
       {ReactDOM.createPortal(
+        //백드롭을 클릭시에 닫히기 위하기 위해서는 위에 온클릭하고 프롭스 받아서 내려주기
         <Backdrop onClose={props.onClose} />,
         portalElement
       )}
