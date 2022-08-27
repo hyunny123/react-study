@@ -11,9 +11,13 @@ const Cart = (props) => {
   //항목이 있는 경우에만 나타나게 하기
   const hasItems = cartCtx.items.length > 0;
 
-  const cartItemRemoveHandler = (id) => {};
+  const cartItemRemoveHandler = (id) => {
+    cartCtx.removeItem(id);
+  };
 
-  const cartItemAddHandler = (item) => {};
+  const cartItemAddHandler = (item) => {
+    cartCtx.addItem({ ...item, amount: 1 });
+  };
 
   const CardItems = (
     <ul className={classes["cart-items"]}>
