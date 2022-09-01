@@ -11,6 +11,11 @@ class Users extends Component {
       more: "Test",
     };
   }
+  componentDidUpdate() {
+    if (this.props.users.length === 0) {
+      throw new Error("No user provoded!");
+    }
+  }
 
   toggleUsersHandler() {
     // this.state.showUsers = false; //NOT!!
