@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 const SimpleInput = (props) => {
   const nameInputRef = useRef();
   const [enteredName, setEnteredName] = useState("");
+  const [enteredNameIsValid, setEnteredNameIsValid] = useState(true);
 
   const nameInputChangeHandler = (e) => {
     //input 요소로 입력된 값에 event.target으로 접근하는것.
@@ -18,6 +19,14 @@ const SimpleInput = (props) => {
     //우리에게 서버가 없기때문에 요청이 보내지지 않도록 해야한다.
     //기본적으로 http 요청을 보내지 않고 아무것도 하지 말라는 명령.
     e.preventDefault();
+    //빈문자열일경우 submit 안되게 하기
+    if (enteredName.trim() === "") {
+      setEnteredNameIsValid(false);
+      return;
+    }
+    //위 조건문 뒤로 실행되면 값이 유효함을 의미하기 때문에 true!
+    //
+    setEnteredNameIsValid(true);
     console.log(enteredName);
     const enteredValue = nameInputRef.current.value;
     console.log(enteredValue);
@@ -25,10 +34,18 @@ const SimpleInput = (props) => {
     //input 창에 value props와 연결되어 업데이트 된뒤, 이부분 반영.
     setEnteredName("");
   };
+  //빈칸 submit 할 경우, input창 css 변경.
+  //변경한뒤 className에 변수 넣기.
+  const nameInputClasses = enteredNameIsValid
+    ? "form-control"
+    : "form-control invalid";
+
   return (
+    //form-control이 알맞지 않으면 form-control invalid로 바꿈.
+
     <form onSubmit={formSubmissionHandler}>
-      <div className="form-control">
-        <label htmlFor="name">Your Name</label>
+      <div className={nameInputClasses}>
+        <label htmlFor="name">이름을 작성해주세요!</label>
         <input
           ref={nameInputRef}
           type="text"
@@ -36,6 +53,9 @@ const SimpleInput = (props) => {
           onChange={nameInputChangeHandler}
           value={enteredName}
         />
+        {!enteredNameIsValid && (
+          <p className="error-text">입력칸에 이름을 입력해주세요!</p>
+        )}
       </div>
       <div className="form-actions">
         <button>Submit</button>
