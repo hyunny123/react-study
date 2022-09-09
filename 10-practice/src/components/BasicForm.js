@@ -1,5 +1,5 @@
-import { useState } from "react";
-import useInput from "../hooks/use-input";
+// import useInput from "../hooks/use-input";
+import useInputReducer from "../hooks/use-input-reducer";
 
 const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
@@ -12,7 +12,7 @@ const BasicForm = (props) => {
     valueChangeHandler: firstNameChangeHandler,
     inputBlurHandler: firstNameBlurHandler,
     reset: resetFirstName,
-  } = useInput(isNotEmpty);
+  } = useInputReducer(isNotEmpty);
   const {
     value: lastNameValue,
     isValid: lastNameIsValid,
@@ -20,7 +20,7 @@ const BasicForm = (props) => {
     valueChangeHandler: lastNameChangeHandler,
     inputBlurHandler: lastNameBlurHandler,
     reset: resetLastName,
-  } = useInput(isNotEmpty);
+  } = useInputReducer(isNotEmpty);
   const {
     value: emailValue,
     isValid: emailIsValid,
@@ -28,7 +28,7 @@ const BasicForm = (props) => {
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
     reset: resetEmail,
-  } = useInput(isEmail);
+  } = useInputReducer(isEmail);
 
   let formIsValid = false;
 
